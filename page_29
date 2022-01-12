@@ -1,0 +1,77 @@
+### Robot.java class! ###
+
+
+package studyclass_1;
+
+public class Robot {
+	
+	int x,y;
+	int power;
+	int price;
+	String name;
+	int id;
+	
+	static int robotCount = 0;  // static variable. We can use this without making Object.
+	
+	Robot(int power, int price, String name) {
+		this.power = power;
+		this.price = price;
+		this.name = name;
+		
+		robotCount += 1;
+		this.id = robotCount; 
+	}
+	
+	// first method
+	void moveForward() {
+		x = x+5;
+	}
+	
+	// second method
+	void moveBack() {
+		y = y-5;
+	}
+	
+	// third method
+	void introduction() {
+		System.out.println("My name is " + this.name);
+		System.out.println("My power is " + this.power);
+	}
+	
+	static int add_one() {
+		return robotCount+1;
+	}
+
+}
+
+
+
+
+
+
+
+### RobotFactory.java class!! This is the main class! ###
+
+
+
+package studyclass_1;
+
+public class RobotFactory {
+	
+	public static void main(String[] args) {
+		
+		Robot r1 = new Robot(92,9200,"robot1");
+		Robot r2 = new Robot(99,9900,"robot2");
+		Robot r3 = new Robot(87,8700,"robot3");
+		
+		r1.introduction();
+		r2.introduction();
+		r3.introduction();
+		
+		System.out.println("Static variable robotCount = "+ Robot.robotCount); // when we use static variable like robotCount, we cn type Robot.robotCount
+		System.out.println("Static method add_one = " + Robot.add_one()); // when we use static method like add_one(), we can type Robot.add_one()
+		System.out.println("r1 coordinate (x,y) = " + r1.x + r1.y);  // If we don't set the value of instance variable, it becomes 0
+	}
+
+}
+
